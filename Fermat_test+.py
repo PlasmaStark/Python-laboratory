@@ -1,6 +1,6 @@
-# modified & fixed version: all this user input stuff can easily be removed, 
-# it may be annoying for someone - not for me, I made it for funsies
+# modified & fixed version
 
+from math import gcd
 import random
 
 def Fermat():
@@ -12,7 +12,10 @@ def Fermat():
     correct = (n>3) & (n%2 != 0)
     if correct:
         for i in range(k):
-            r = random.randint(1,n-1)
+            while True:
+                r = random.randint(1,n-1)
+                if gcd(r,n)==1:
+                    break
             if pow(r, n-1, n) != 1:
                 correct = False
                 break
