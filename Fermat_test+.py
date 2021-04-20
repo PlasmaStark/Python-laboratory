@@ -1,4 +1,6 @@
 # modified & fixed version
+# Note: all the user input stuff can easily be removed, it may be 
+# annoying for someone - not for me though, I made it for funsies
 
 from math import gcd
 import random
@@ -14,7 +16,10 @@ def Fermat():
         for i in range(k):
             while True:
                 r = random.randint(1,n-1)
-                if gcd(r,n)==1:
+                # the following is NOT necessary for big numbers, so 
+                # edit it out if needed; I just used it to test 
+                # for small Carmichael numbers
+                if gcd(r,n)==1:  
                     break
             if pow(r, n-1, n) != 1:
                 correct = False
